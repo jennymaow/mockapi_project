@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem auto;
+    gap: var(--items-gap);
+}
+
+.filters{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--items-gap);
+    margin-bottom: 0.8rem;
+}
+
+.filters h3{
+    color: white;
+}
+
+.filters button{
+    padding: 0.3rem 0.7rem;
+    border: none;
+    background-color: var(--color-background);
+    border-radius: 4px;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.user-profiles{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

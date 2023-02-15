@@ -1,0 +1,50 @@
+.profiles-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90vh;
+}
+.detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail h1{
+    font-size: 8rem;
+    filter: drop-shadow(5px 3px 8px #913c3ca1);
+    width: 40vw;
+    text-align: center;
+}
+
+.detail>.profileCard{
+    background-color: var(--color-background);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    border: none;
+    margin: 1rem;
+    width: 40vw;
+}
+
+.detail>.profileCard > h2{
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.detail>.profileCard > h3{
+    font-weight: 500;
+    padding: 0.5rem;
+}
+
+.back{
+   align-self: center;
+   margin: 2rem 0;
+   padding: 0.5rem 1rem;
+   border: 1px solid white;
+   color: white;
+    transition: all 0.3s ease-in-out ;
+}
+
+.back:hover{
+    background-color: rgba(255, 255, 255, 0.315);
+}

@@ -1,13 +1,16 @@
 import { UserContext } from "../context/userContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "../components/Card";
+import "./Profiles.css";
 
 const Profiles = () => {
   const { users, maleUsers, divorcedUsers, loaded } = useContext(UserContext);
+  const [printUsers, setPrintUsers] = useState([]);
 
   return (
     <div className="container">
       <section className="filters">
+      <h3>Popular filters: </h3>
         <button
           onClick={() => {
             loaded ? (
@@ -21,28 +24,26 @@ const Profiles = () => {
         </button>
         <button
           onClick={() => {
-            maleUsers.map((user) => <Card user={user} key={user.id} />);
+            setPrintUsers(maleUsers);
           }}
         >
           Man
         </button>
         <button
           onClick={() => {
-            loaded ? (
-              divorcedUsers.map((user) => <Card user={user} key={user.id} />)
-            ) : (
-              <h1>Loading...</h1>
-            );
+            setPrintUsers(divorcedUsers);
           }}
         >
           Not Divorced
         </button>
       </section>
-      {loaded ? (
-        users.map((user) => <Card user={user} key={user.id} />)
-      ) : (
-        <h1>Loading...</h1>
-      )}
+      <div className="user-profiles">
+        {loaded ? (
+          users.map((user) => <Card user={user} key={user.id} />)
+        ) : (
+          <h1>Loading...</h1>
+        )}
+      </div>
     </div>
   );
 };

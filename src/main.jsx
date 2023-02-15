@@ -6,6 +6,7 @@ import './index.css'
 import ProfilesDetail from './pages/ProfilesDetail'
 import Profiles from './pages/Profiles'
 import { UserContextProvider } from './context/userContext'
+import Home from './pages/Home'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -13,8 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <UserContextProvider>
       <Routes>
         <Route path="/" element={<App/>}>
-          <Route index element ={<Profiles/>}/>
-          <Route path="/:id" element={<ProfilesDetail/>}/>
+          <Route index element ={<Home/>}/>
+          <Route path='/users' element={<Profiles/>}></Route>
+          <Route path="/users/:id" element={<ProfilesDetail/>}/>
         </Route>
       </Routes>
       </UserContextProvider>

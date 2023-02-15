@@ -1,0 +1,7 @@
+.layout-grid {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows:
+    10vh
+    1fr;
+}
