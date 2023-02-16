@@ -3,7 +3,8 @@ import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
 import LayoutGrid from "./Layout/LayoutGrid";
 
-function App() {
+function App({children}) {
+  console.log("children",children);
   return (
     <div className="App">
     <LayoutGrid>

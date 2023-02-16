@@ -10,6 +10,8 @@ const Card = ({user}) => {
               <h3>Gender: {user.sex}</h3>
               <h3>Birthdate: {user.birthdate.slice(0, 10)}</h3>
             </div>
+            {/* useCallBack y memo juntos para que no se rerenderiza el hijo */}
+          {/*   <button onClick={()=>setPrueba("Hola")}>Change</button> */}
             <Link className="more" to={`/users/${user.id}`}>See more</Link>
           </div>
   )
