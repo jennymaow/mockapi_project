@@ -1,27 +1,8 @@
-import React, { useContext, useEffect } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/userContext";
 
 const Home = () => {
-  const { users, setUsers, setLoaded } = useContext(UserContext);
-  
   const navigate = useNavigate();
-
-  const getUsers = async () => {
-    const res = await fetch(
-      "https://63ecf23b32a0811723a597c4.mockapi.io/blinddates/users"
-    );
-    const data = await res.json();
-    console.log("LANZANDO PETICIÓN");
-    setUsers(data);
-    
-    localStorage.setItem("user", JSON.stringify(data));
-  };
-
-  useEffect(() => {
-    getUsers();
-  }, []);
 
   return (
     <div className="home">

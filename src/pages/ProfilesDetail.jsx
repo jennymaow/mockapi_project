@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { UserContext } from "../context/userContext";
-import { useContext } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import "./ProfilesDetail.css";
 
 const ProfilesDetail = () => {
-  const [profile, setProfile] = useState({});
-
-  const { users } = useContext(UserContext);
-
+  const [request] = useOutletContext();
   const { id } = useParams();
+  const profile = request?.find((user) => user.id === id);
 
-  const findProfile = () => {
-    setProfile(users.find((user) => user.id === id));
-  };
-
-  useEffect(() => {
-    findProfile();
-  }, []);
+  useEffect(() => {}, [request]);
 
   return (
     <div className="profiles-detail">
       <div className="detail">
-        <h1>{profile.emoji}</h1>
+        {typeof profile == "object" && (<><h1>{profile.emoji}</h1>
         <div className="profileCard">
           <h2>{profile.name}</h2>
           <h3>Gender: {profile.sex}</h3>
@@ -31,9 +22,8 @@ const ProfilesDetail = () => {
           <h3>Pet: {profile.pet}</h3>
           <h3>Vehicle: {profile.vehicle}</h3>
           {profile.divorced ? <h3>Divorced: Yes</h3> : <h3>Divorced: No</h3>}
-        </div>
+        </div></>)}
       </div>
-
       <Link to="/users" className="back">
         Back
       </Link>
